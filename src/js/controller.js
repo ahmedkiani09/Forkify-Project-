@@ -11,12 +11,6 @@ import recipeView from './views/recipeView';
 import { TIME_TO_ADD } from './config';
 import addRecipeView from './views/addRecipeView';
 
-// https://forkify-api.herokuapp.com/v2
-
-// if (module.hot) {
-// module.hot.accept();
-// }
-
 const controlRecipes = async function () {
   try {
     // 0. updating the recipe with selection class: and rendering the bookmarks view containiner:
@@ -60,7 +54,7 @@ const controlSearchResult = async function () {
     // 4. Render initial pagination buttons:
     objectPaginationsView.render(model.state.search); // this render method is in parent class that the pagination class can inherit.
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 };
 
@@ -77,7 +71,6 @@ const controlServings = function (newServings) {
   model.updateServings(newServings);
 
   // rendering the NEW servings:
-  // objectRecipeView.render(model.state.recipe);
   objectRecipeView.update(model.state.recipe);
 };
 
@@ -105,7 +98,6 @@ const controlAddRecipe = async function (newRecipe) {
 
     // upload the new recipe:
     await model.uploadRecipe(newRecipe);
-    console.log(model.state.recipe);
 
     // render the added recipe:
     objectRecipeView.render(model.state.recipe);
@@ -138,8 +130,6 @@ const init = function () {
   objectSearchView.addhandlerSearch(controlSearchResult);
   objectPaginationsView.addHandlerClick(controlPagination);
   objectAddRecipeView.addHandlerUpload(controlAddRecipe);
-  console.log('welcome');
-  console.log('hello');
 };
 init();
 // We can also use the IIFE here 😉.

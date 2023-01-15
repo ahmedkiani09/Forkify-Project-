@@ -90,7 +90,6 @@ const storeBookmark = function () {
 export const addBookmark = function (recipe) {
   // add the bookmark:
   state.bookmarks.push(recipe);
-  console.log(recipe);
 
   // Mark current recipe as bookmark:
   state.recipe.bookmarked = true;
@@ -162,7 +161,6 @@ export const uploadRecipe = async function (newRecipe) {
 
     const data = await ajax(`${API_URL}?key=${KEY}`, recipe);
     state.recipe = getRecipeObject(data); // getRecipeObject is a function and it will update the value of the recipe.state property.
-    console.log(data);
     addBookmark(state.recipe); // this add the new bookmark to our own uploaded recipe.
   } catch (error) {
     throw error;
