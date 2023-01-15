@@ -139,6 +139,7 @@ const init = function () {
   objectPaginationsView.addHandlerClick(controlPagination);
   objectAddRecipeView.addHandlerUpload(controlAddRecipe);
   console.log('welcome');
+  console.log('hello');
 };
 init();
 // We can also use the IIFE here 😉.
